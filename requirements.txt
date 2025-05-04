@@ -3,10 +3,10 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 streamlit==1.30.0
-torch==2.2.0+cpu
-torchvision==0.17.0+cpu
-torchaudio==2.2.0+cpu
-torchtext==0.17.1
+torch==2.2.1+cpu
+torchvision==0.17.1+cpu
+torchaudio==2.2.1+cpu
+torchtext==0.17.1+cpu
 datasets==2.15.0
 tokenizers==0.15.0
 torchmetrics==1.0.3
