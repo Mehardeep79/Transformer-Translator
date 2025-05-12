@@ -20,7 +20,7 @@ A Streamlit web application for translating English text to Italian using a tran
 
 1. Run the Streamlit app:
    ```
-   streamlit run app.py
+   streamlit run app2.py
    ```
 2. The app will open in your default web browser
 3. Enter English text in the input area
