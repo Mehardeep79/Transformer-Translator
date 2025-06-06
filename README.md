@@ -81,3 +81,21 @@ pip install -r requirements.txt
 ```bash
 streamlit run app2.py
 ```
+### 🧑‍💻 Authors
+
+- Mehardeep Singh Sandhu
+
+    BTech Electronics & Communication
+
+    Shiv Nadar University
+    
+     [LinkedIn](https://www.linkedin.com/in/mehardeep-singh-sandhu-92a42a21a/) | 
+[GitHub](https://github.com/Mehardeep79)
+
+- Pasumarthy Akshat Naidhruv
+     
+    BTech Electronics & Communication
+
+    Shiv Nadar University
+   
+    [LinkedIn](https://www.linkedin.com/in/akshat-naidhruv-5b715122b/)  |    [GitHub](https://github.com/naidhruvakshat)
