@@ -9,6 +9,7 @@ from model import build_transformer
 from dataset import causal_mask
 from tokenizers import Tokenizer
 from config import get_config, get_weights_file_path
+from huggingface_hub import hf_hub_download
 import math
 
 # Create output directory for visualizations
@@ -302,41 +303,46 @@ def visualize_attention(model, src_tokens, tgt_tokens, output_dir="attention_map
 
 
 def load_model():
-    """Load the trained model"""
+    """Load the trained model from Hugging Face Hub"""
     # Set device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
-    
+
     # Get configuration
     config = get_config()
-    
+
     # Load tokenizers
     tokenizer_src = Tokenizer.from_file(config['tokenizer_file'].format(config['lang_src']))
     tokenizer_tgt = Tokenizer.from_file(config['tokenizer_file'].format(config['lang_tgt']))
-    
-    # Build the transformer model
+
+    # Build transformer model architecture
     model = build_transformer(
-        tokenizer_src.get_vocab_size(), 
-        tokenizer_tgt.get_vocab_size(), 
-        config['seq_len'], 
-        config['seq_len'], 
+        tokenizer_src.get_vocab_size(),
+        tokenizer_tgt.get_vocab_size(),
+        config['seq_len'],
+        config['seq_len'],
         d_model=config['d_model']
     ).to(device)
-    
-    # Load model weights (30th epoch)
-    model_path = get_weights_file_path(config, "30")
+
+    # Download weights from Hugging Face Hub
+    model_path = hf_hub_download(
+        repo_id="Mehardeep7/transformer-attention-model",
+        filename="tmodel_30.pt"
+    )
+
+    # Load model state_dict
     state = torch.load(model_path, map_location=device)
     model.load_state_dict(state['model_state_dict'])
     model.eval()
-    
-    print(f"Successfully loaded model from {model_path}")
-    
+
+    print(f"Successfully loaded model from Hugging Face: {model_path}")
+
     # Modify the attention method to capture attention weights
     model = modify_attention_method(model)
-    
-    # Register hooks to capture attention weights
+
+    # Register attention hooks
     add_attention_hooks(model)
-    
+
     return model, tokenizer_src, tokenizer_tgt, device, config
 
 

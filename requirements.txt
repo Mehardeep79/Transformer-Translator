@@ -14,5 +14,4 @@ tensorboard==2.13.0
 altair==5.1.1
 matplotlib
 seaborn
-
-
+huggingface_hub==0.20.3  # ✅ Added this for HF model download
