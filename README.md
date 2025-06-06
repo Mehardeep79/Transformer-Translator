@@ -6,6 +6,7 @@ This repository contains a custom-built **Generatively Pretrained Transformer (G
 
 ---
 
+![Streamlit App](assets/streamlit_app.png)
 ## 📌 Features
 
 - ✅ Fully custom implementation of Transformer architecture
