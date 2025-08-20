@@ -54,7 +54,7 @@ This repository contains a custom-built **Generatively Pretrained Transformer (G
 ### 🔁 Clone and Install
 
 ```bash
-git clone https://github.com/your-username/english-to-italian-transformer.git
+git clone https://github.com/Mehardeep79/Transformer-Translator.git
 cd english-to-italian-transformer
 pip install -r requirements.txt
 ```
